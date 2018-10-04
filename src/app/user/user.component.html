@@ -1,0 +1,7 @@
+<div class="grid grid-pad">
+  <table id='users'>
+    <th>username</th><th>email</th><th>address</th><th>phone number</th><th>account</th><th>created</th><th>password exp</th><th>last sign on</th><th>login failure</th>
+    <tr *ngFor="let user of users"><td>{{user.username}}</td><td>{{user.email}}</td><td><address>{{user.addresses}}</address></td><td>{{user.phonenumbers}}</td><td>{{user.type}}</td><td>{{user.accountcreated}}</td><td>{{user.passwordexpire}}</td><td>{{user.lastlogin}}</td><td>{{user.loginfailure}}</td>
+    </tr>  
+  </table>
+</div>

@@ -1,0 +1,11 @@
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/user">Users</a>
+</nav>
+<router-outlet></router-outlet>
+
+<button (click)="fetchDataFromServer()">Get all user data</button>
+
+<pre *ngFor="let user of title">
+    {{user | json}}
+</pre>
