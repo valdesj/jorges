@@ -1,7 +1,18 @@
-<div class="grid grid-pad">
+<div>
   <table id='users'>
-    <th>username</th><th>email</th><th>address</th><th>phone number</th><th>account</th><th>created</th><th>password exp</th><th>last sign on</th><th>login failure</th>
-    <tr *ngFor="let user of users"><td>{{user.username}}</td><td>{{user.email}}</td><td><address>{{user.addresses}}</address></td><td>{{user.phonenumbers}}</td><td>{{user.type}}</td><td>{{user.accountcreated}}</td><td>{{user.passwordexpire}}</td><td>{{user.lastlogin}}</td><td>{{user.loginfailure}}</td>
+    <th>username</th><th>email</th><th>address</th><th>phone number</th><th>account</th><th>login failure</th>
+    <tr *ngFor="let user of users" (click)="requestUser(user.username)">
+      <td id="username">{{user.username}}</td>
+      <td id="email">{{user.email}}</td>
+      <td id="address">{{user.addresses}}</td>
+      <td id="phone">{{user.phonenumbers}}</td>
+      <td id="account">{{user.type}}</td>
+      <td id="failure">{{user.loginfailure}}</td>
     </tr>  
   </table>
 </div>
+
+    <!-- <th>created</th><th>password exp</th><th>last sign on</th> -->
+      <!-- <td id="created">{{user.accountcreated}}</td>
+      <td id="expiration">{{user.passwordexpire}}</td>
+      <td id="lastlogin">{{user.lastlogin}}</td> -->
