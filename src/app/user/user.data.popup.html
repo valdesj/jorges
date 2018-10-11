@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Displaying {{data.username}}</h1>
+<div mat-dialog-content>
+ {{data | json}}
+  <!-- <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field> -->
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="data.username" cdkFocusInitial>Submit Changes</button>
+</div>

@@ -1,18 +1,22 @@
-<div>
-  <table id='users'>
-    <th>username</th><th>email</th><th>address</th><th>phone number</th><th>account</th><th>login failure</th>
-    <tr *ngFor="let user of users" (click)="requestUser(user.username)">
-      <td id="username">{{user.username}}</td>
-      <td id="email">{{user.email}}</td>
-      <td id="address">{{user.addresses}}</td>
-      <td id="phone">{{user.phonenumbers}}</td>
-      <td id="account">{{user.type}}</td>
-      <td id="failure">{{user.loginfailure}}</td>
-    </tr>  
-  </table>
-</div>
-
-    <!-- <th>created</th><th>password exp</th><th>last sign on</th> -->
-      <!-- <td id="created">{{user.accountcreated}}</td>
-      <td id="expiration">{{user.passwordexpire}}</td>
-      <td id="lastlogin">{{user.lastlogin}}</td> -->
+<mat-card-header>
+  <div mat-card-avatar ></div>
+  <mat-card-title>List of Users</mat-card-title>
+</mat-card-header>
+<table mat-table class="mat-elevation-z8">
+  <tr mat-header-row>
+    <th mat-header-cell>username</th>
+    <th mat-header-cell>email</th>
+    <th mat-header-cell>address</th>
+    <th mat-header-cell>phone number</th>
+    <th mat-header-cell>account</th>
+    <th mat-header-cell>login failure</th>
+  </tr>
+  <tr mat-row *ngFor="let user of users" (click)="openDialog(user)">
+    <td mat-cell>{{user.username}}</td>
+    <td mat-cell>{{user.email}}</td>
+    <td mat-cell>{{user.addresses}}</td>
+    <td mat-cell>{{user.phonenumbers}}</td>
+    <td mat-cell>{{user.type}}</td>
+    <td mat-cell>{{user.loginfailure}}</td>
+  </tr>
+</table>
