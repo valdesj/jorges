@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import './../polyfills';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
@@ -20,6 +22,7 @@ import { UserInfoModal } from './user/user.component'
     MatDialogModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatFormFieldModule
   ],
   providers: [],
   entryComponents: [ UserInfoModal ],

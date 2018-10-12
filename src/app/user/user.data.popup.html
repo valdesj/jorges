@@ -1,11 +1,21 @@
 <h1 mat-dialog-title>Displaying {{data.username}}</h1>
-<div mat-dialog-content>
- {{data | json}}
-  <!-- <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field> -->
+<div class="row">
+  <div mat-dialog-content class="col-sm-6">
+    <h4>Username: {{data.username}}</h4>
+    <h4>Email: {{data.email}}</h4>
+    <h4>Phone Number: {{data.addresses}}</h4>
+    <h4>Type: {{data.type}}</h4>
+    {{data | json}}
+  </div>
+  <div mat-dialog-content class="col-sm-6">
+    <h4>Profile Picture here</h4>
+    <h4>Google Maps of Home</h4>
+    <h4>Carosel/library of yard</h4>
+  </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-button [mat-dialog-close]="data.username" cdkFocusInitial>Submit Changes</button>
+<div mat-dialog-actions class="row">
+  <div id="form-edit">
+    <button mat-button (click)="onNoClick()">Close</button>
+    <button mat-button [mat-dialog-close]="data.username" cdkFocusInitial>Submit Changes</button>
+  </div>
 </div>
