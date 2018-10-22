@@ -7,6 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SortableModule } from '@progress/kendo-angular-sortable';
 import './../polyfills';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -22,7 +23,8 @@ import { UserInfoModal } from './user/user.component'
     MatDialogModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    SortableModule
   ],
   providers: [],
   entryComponents: [ UserInfoModal ],

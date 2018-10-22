@@ -1,9 +1,45 @@
-<h3>we in dash</h3>
-<!-- <div class="grid grid-pad">
-  <a *ngFor="let hero of heroes" class="col-1-4"
-      routerLink="/detail/{{hero.id}}">
-    <div class="module hero">
-      <h4>{{hero.name}}</h4>
-    </div>
-  </a> 
-</div>-->
+<div class="container">
+	<div class="row">
+		<h1 class="col-sm-12">
+			{{title}}
+		</h1>
+		<section class="group-panel col-md-6">
+			<h3>Groups</h3>
+			<ul class="groups">
+				<li *ngFor="let g of groups">
+					<h4>{{ g.group }}</h4>
+					{{g | json}}
+					<kendo-sortable [zone]="'contacts'" [navigatable]="true" [data]="g.people" [activeItemClass]="'active'"
+					 [emptyItemClass]="'contact-info--empty'" [emptyText]="'Drag contacts here'" (dataAdd)="onAdd($event, g)">
+						<ng-template let-item="item">
+							<div class="contact-info">
+								<div class="row">
+									<div class="col-sm-9">
+										<h5>{{ item.name }}</h5>
+										<p>{{ item.location }}</p>
+									</div>
+								</div>
+							</div>
+						</ng-template>
+					</kendo-sortable>
+				</li>
+			</ul>
+		</section>
+		<section class="group-panel col-md-6">
+			<h3>Ungrouped</h3>
+			<kendo-sortable [zone]="'contacts'" [navigatable]="true" [data]="ungroupedContacts" [activeItemClass]="'active'"
+			 [emptyItemClass]="'contact-info--empty'" [emptyText]="'Drag contacts here'">
+				<ng-template let-item="item">
+					<div class="contact-info">
+						<div class="row">
+							<div class="col-sm-9">
+								<h5>{{ item.name }}</h5>
+								<p>{{ item.location }}</p>
+							</div>
+						</div>
+					</div>
+				</ng-template>
+			</kendo-sortable>
+		</section>
+	</div>
+</div>
