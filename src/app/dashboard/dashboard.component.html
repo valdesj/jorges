@@ -3,15 +3,17 @@
 		<h1 class="col-sm-12">
 			{{title}}
 		</h1>
+		<section>
+			<ul>
+				<h5>Add Group</h5>
+				<input #newGroup (keyup.enter)="addGroup(newGroup.value)" currentVal="">
+			</ul>
+		</section>
 		<section class="group-panel col-md-6">
 			<h3>Groups</h3>
 			<ul class="groups">
-				<li>
-					<h5>Add Group</h5><input #newGroup (keyup.enter)="addGroup(newGroup.value)">
-				</li>
 				<li *ngFor="let g of groups">
 					<h4>{{ g.group }}</h4>
-					{{g | json}}
 					<kendo-sortable [zone]="'contacts'" [navigatable]="true" [data]="g.people" [activeItemClass]="'active'"
 					 [emptyItemClass]="'contact-info--empty'" [emptyText]="'Drag contacts here'" (dataAdd)="onAdd($event, g)">
 						<ng-template let-item="item">
@@ -45,5 +47,5 @@
 	</div>
 </div>
 <pre>
-	{{people | json}}
+	{{groups | json}}
 </pre>
