@@ -16,19 +16,36 @@ export class DashboardComponent {
   constructor() {
     this.groups = this.getContacts()
       .filter(c => c.group != "Ungrouped");
-
-    this.groups.push({
-      group: "Add new group",
-      people: []
-    })
-
     this.ungroupedContacts = this.getContacts()
       .filter(c => c.group == "Ungrouped")[0].people;
   }
 
+  checkIfGroupExists(nameToCheck){
+    var exists
+    for (var i = 0; i < this.groups.length; i++){
+      if((this.groups[i].group) == nameToCheck) {
+        exists = false
+        return exists
+      } else {
+        exists = true
+      }
+    }
+    return exists
+  }
+
+  public addGroup(newGroupName) {
+    if (this.checkIfGroupExists(newGroupName)){
+      this.groups.push({
+        group: newGroupName,
+        people: []
+      })
+    } else {
+      alert("Group already exists!!")
+    }
+  }
+
   public onAdd(args, item) {
     console.log("Added")
-
     if (item.group == "Add new group") {
       item.group = item.people + args.dataItem.name + "'s Group"
       this.groups.push({
@@ -37,10 +54,11 @@ export class DashboardComponent {
       })
     }
   }
+
   private getContacts() {
-    return [
+    return [ 
       {
-        group: "Friends",
+        group: "Mond",
         people: [
           {
             id: 6,
@@ -52,6 +70,16 @@ export class DashboardComponent {
             name: "Ed Charbeneau",
             location: "Louisville"
           }
+        ]
+      },
+      {
+        group: "Tues",
+        people: [
+        ]
+      },
+      {
+        group: "Wed",
+        people: [
         ]
       },
       {
