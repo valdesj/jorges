@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent {
   title = 'Route Editor';
-
+  group = [];
   groups = [];
+  contactGroup = [];
   ungroupedContacts = [];
 
   constructor() {
@@ -18,10 +19,10 @@ export class DashboardComponent {
       .filter(c => c.group == "Ungrouped")[0].people;
   }
 
-  checkIfGroupExists(nameToCheck){
+  checkIfGroupExists(nameToCheck) {
     var exists
-    for (var i = 0; i < this.groups.length; i++){
-      if((this.groups[i].group) == nameToCheck) {
+    for (var i = 0; i < this.groups.length; i++) {
+      if ((this.groups[i].group) == nameToCheck) {
         exists = false
         return exists
       } else {
@@ -31,8 +32,17 @@ export class DashboardComponent {
     return exists
   }
 
+  loadSelected(toLoad) {
+    for (var i = 0; i < this.groups.length; i++) {
+      if ((this.groups[i].group) == toLoad) {
+        this.group = (this.groups[i])
+      }
+    }
+    console.log(this.group)
+  }
+
   public addGroup(newGroupName) {
-    if (this.checkIfGroupExists(newGroupName)){
+    if (this.checkIfGroupExists(newGroupName)) {
       this.groups.push({
         group: newGroupName,
         people: []
@@ -54,7 +64,7 @@ export class DashboardComponent {
   }
 
   private getContacts() {
-    return [ 
+    return [
       {
         group: "Mond",
         people: [

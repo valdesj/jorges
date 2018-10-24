@@ -11,19 +11,19 @@
 		</section>
 		<section class="group-panel col-md-6">
 			<h3>Groups</h3>
-			<select>
+			<select #selectGroup (change)="loadSelected(selectGroup.value)">
 				<option *ngFor="let g of groups">{{g.group}}</option>
 			</select>
 			<ul class="groups">
-				<li *ngFor="let g of groups">
+				<li *ngFor="let g of group.people">
 					<h4>{{ g.group }}</h4>
-					<kendo-sortable [zone]="'contacts'" [navigatable]="true" [data]="g.people" [activeItemClass]="'active'"
+					<kendo-sortable [zone]="'contacts'" [navigatable]="true" [data]="group.people" [activeItemClass]="'active'"
 					 [emptyItemClass]="'contact-info--empty'" [emptyText]="'Drag contacts here'" (dataAdd)="onAdd($event, g)">
 						<ng-template let-item="item">
 							<div class="contact-info">
 								<div class="row">
 									<div class="col-sm-9">
-										<h5>{{ item.name }}</h5>
+										<h5>{{ group |json }}</h5>
 									</div>
 								</div>
 							</div>
@@ -50,5 +50,5 @@
 	</div>
 </div>
 <pre>
-	{{groups | json}}
+	{{group | json}}
 </pre>
