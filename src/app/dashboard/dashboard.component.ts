@@ -16,39 +16,6 @@ export class DashboardComponent {
     this.groups = this.getContacts()
       .filter(c => c.group != "Ungrouped");
 
-<<<<<<< HEAD
-  checkIfGroupExists(nameToCheck) {
-    var exists
-    for (var i = 0; i < this.groups.length; i++) {
-      if ((this.groups[i].group) == nameToCheck) {
-        exists = false
-        return exists
-      } else {
-        exists = true
-      }
-    }
-    return exists
-  }
-
-  loadSelected(toLoad) {
-    for (var i = 0; i < this.groups.length; i++) {
-      if ((this.groups[i].group) == toLoad) {
-        this.group = (this.groups[i])
-      }
-    }
-    console.log(this.group)
-  }
-
-  public addGroup(newGroupName) {
-    if (this.checkIfGroupExists(newGroupName)) {
-      this.groups.push({
-        group: newGroupName,
-        people: []
-      })
-    } else {
-      alert("Group already exists!!")
-    }
-=======
     this.groups.push({
       group: "Add new group",
       people: []
@@ -56,7 +23,6 @@ export class DashboardComponent {
 
     this.ungroupedContacts = this.getContacts()
       .filter(c => c.group == "Ungrouped")[0].people;
->>>>>>> parent of b39847b... drag drop and create
   }
 
   public onAdd(args, item) {
