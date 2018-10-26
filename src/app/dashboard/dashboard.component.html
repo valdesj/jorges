@@ -12,11 +12,7 @@
 		<section class="group-panel col-md-6">
 			<h3>Groups</h3>
 			<ul class="groups">
-<<<<<<< HEAD
-				<li *ngFor="let g of group.people">
-=======
 				<li *ngFor="let g of groups">
->>>>>>> parent of b39847b... drag drop and create
 					<h4>{{ g.group }}</h4>
 					<kendo-sortable [zone]="'contacts'" [navigatable]="true" [data]="group.people" [activeItemClass]="'active'"
 					 [emptyItemClass]="'contact-info--empty'" [emptyText]="'Drag contacts here'" (dataAdd)="onAdd($event, g)">
@@ -24,12 +20,8 @@
 							<div class="contact-info">
 								<div class="row">
 									<div class="col-sm-9">
-<<<<<<< HEAD
-										<h5>{{ group |json }}</h5>
-=======
 										<h5>{{ item.name }}</h5>
 										<p>{{ item.location }}</p>
->>>>>>> parent of b39847b... drag drop and create
 									</div>
 								</div>
 							</div>
@@ -55,11 +47,4 @@
 			</kendo-sortable>
 		</section>
 	</div>
-<<<<<<< HEAD
 </div>
-<pre>
-	{{group | json}}
-</pre>
-=======
-</div>
->>>>>>> parent of b39847b... drag drop and create
