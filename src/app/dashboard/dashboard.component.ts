@@ -14,28 +14,35 @@ export class DashboardComponent {
 
   constructor() {
     this.groups = this.getContacts()
-      .filter(c => c.group != "Ungrouped");
-
-    this.groups.push({
-      group: "Add new group",
-      people: []
-    })
-
+      .filter(c => c.group != "Ungrouped")
     this.ungroupedContacts = this.getContacts()
       .filter(c => c.group == "Ungrouped")[0].people;
   }
 
-  public onAdd(args, item) {
-    console.log("Added")
+  checkIfGroupExists(nameToCheck){
+    var exists
+    for (var i = 0; i < this.groups.length; i++){
+      if((this.groups[i].group) == nameToCheck) {
+        exists = false
+        return exists
+      } else {
+        exists = true
+      }
+    }
+    return exists
+  }
 
-    if (item.group == "Add new group") {
-      item.group = item.people + args.dataItem.name + "'s Group"
+  public addGroup(newGroupName) {
+    if (this.checkIfGroupExists(newGroupName)){
       this.groups.push({
-        group: "Add new group",
+        group: newGroupName,
         people: []
       })
+    } else {
+      alert("Group already exists!!")
     }
   }
+
   private getContacts() {
     return [
       {

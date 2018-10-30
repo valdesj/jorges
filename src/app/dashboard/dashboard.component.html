@@ -15,13 +15,12 @@
 				<li *ngFor="let g of groups">
 					<h4>{{ g.group }}</h4>
 					<kendo-sortable [zone]="'contacts'" [navigatable]="true" [data]="group.people" [activeItemClass]="'active'"
-					 [emptyItemClass]="'contact-info--empty'" [emptyText]="'Drag contacts here'" (dataAdd)="onAdd($event, g)">
+					 [emptyItemClass]="'contact-info--empty'" [emptyText]="'Drag contacts here'">
 						<ng-template let-item="item">
 							<div class="contact-info">
 								<div class="row">
 									<div class="col-sm-9">
 										<h5>{{ item.name }}</h5>
-										<p>{{ item.location }}</p>
 									</div>
 								</div>
 							</div>
@@ -39,7 +38,6 @@
 						<div class="row">
 							<div class="col-sm-9">
 								<h5>{{ item.name }}</h5>
-								<p>{{ item.location }}</p>
 							</div>
 						</div>
 					</div>
@@ -48,3 +46,7 @@
 		</section>
 	</div>
 </div>
+
+<pre>
+	{{groups | json}}
+</pre>
