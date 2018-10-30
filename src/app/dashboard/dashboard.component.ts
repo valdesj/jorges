@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,12 +12,17 @@ export class DashboardComponent {
   groups = [];
   contactGroup = [];
   ungroupedContacts = [];
+  sortbales;
 
-  constructor() {
+  constructor(public httpClient: HttpClient) {
     this.groups = this.getContacts()
       .filter(c => c.group != "Ungrouped")
     this.ungroupedContacts = this.getContacts()
       .filter(c => c.group == "Ungrouped")[0].people;
+  }
+  
+  ngOnInit(){
+    this.getSortables();
   }
 
   checkIfGroupExists(nameToCheck){
@@ -41,6 +47,12 @@ export class DashboardComponent {
     } else {
       alert("Group already exists!!")
     }
+  }
+
+  getSortables(){
+    let results = this.httpClient.get('/api/users').subscribe((res) => {
+      this.sortbales = results;
+    })
   }
 
   private getContacts() {
